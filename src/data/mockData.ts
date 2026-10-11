@@ -365,8 +365,8 @@ function PosPage({ lang }: { lang: 'sw' | 'en' }) {
   const [customerName, setCustomerName] = useState('');
   const [customerNote, setCustomerNote] = useState('');
   const [draft, setDraft] = useState<{ [key: string]: number }>({
-    product-1: 2,
-    product-2: 1,
+    'product-1': 2,
+    'product-2': 1,
   });
   const [stockAdjustment, setStockAdjustment] = useState(12);
 
@@ -533,7 +533,7 @@ function PosPage({ lang }: { lang: 'sw' | 'en' }) {
 
           <div className="mt-4 space-y-3">
             <Input value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder={t[lang].customerName} className="bg-[#121212]" />
-            <textarea value={customerNote} onChange={(e) => setCustomerNote(e.target.value)} placeholder={t[lang].note} className="min-h-20 w-full rounded-xl border border-[#D4AF37]/20 bg-[#121212] p-3 text-white outline-none" />
+            <textarea value={customerNote} onChange={(e) => setCustomerNote(e.target.value)} placeholder={t[lang].note} className="min-h-20 w-full rounded-xl border border-[#D4AF37]/20 bg-[#121212] p-4 text-white outline-none" />
           </div>
 
           <div className="mt-5 rounded-2xl border border-[#D4AF37]/10 bg-[#0F0F0F] p-4 text-sm text-zinc-300">
