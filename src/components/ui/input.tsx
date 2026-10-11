@@ -1,34 +1,12 @@
 import * as React from 'react';
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: 'primary' | 'secondary';
-  size?: 'sm' | 'md' | 'lg';
-};
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export function Button({
-  className = '',
-  variant = 'primary',
-  size = 'md',
-  children,
-  ...props
-}: ButtonProps) {
-  const sizeClass = {
-    sm: 'px-3 py-2 text-sm',
-    md: 'px-4 py-3 text-sm',
-    lg: 'px-5 py-3.5 text-base',
-  }[size];
-
-  const variantClass =
-    variant === 'secondary'
-      ? 'border border-[#D4AF37]/25 bg-[#161616] text-white hover:border-[#D4AF37]/50 hover:bg-[#1B1B1B]'
-      : 'bg-[#D4AF37] text-[#111] hover:bg-[#E4C767]';
-
+export function Input({ className = '', ...props }: InputProps) {
   return (
-    <button
-      className={`inline-flex items-center justify-center rounded-xl font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/60 ${sizeClass} ${variantClass} ${className}`}
+    <input
+      className={`w-full rounded-xl border border-[#D4AF37]/20 bg-[#101010] px-4 py-3 text-white placeholder:text-zinc-500 outline-none transition focus:border-[#D4AF37]/60 ${className}`}
       {...props}
-    >
-      {children}
-    </button>
+    />
   );
 }

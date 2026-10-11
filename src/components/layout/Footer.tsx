@@ -1,49 +1,24 @@
-import { Link, useLocation } from 'react-router-dom';
-import { t } from '../../lib/i18n';
+import { Link } from 'react-router-dom';
 
-export default function Header({ lang, setLang }: { lang: 'sw' | 'en'; setLang: (v: 'sw' | 'en') => void }) {
-  const location = useLocation();
-  const navItems = [
-    { label: 'Home', to: '/' },
-    { label: 'Storefront', to: '/' },
-    { label: 'Auth', to: '/auth' },
-    { label: 'POS', to: '/pos' },
-  ];
-
+export default function Footer({ lang }: { lang: 'sw' | 'en' }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-[#D4AF37]/10 bg-[#0b0b0b]/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 text-lg font-black text-[#F6D77D]">
-            I
-          </div>
-          <div>
-            <div className="text-xl font-black tracking-[0.18em] text-white">ICEMAN</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-400">Gym Performance</div>
-          </div>
-        </Link>
+    <footer className="border-t border-[#D4AF37]/10 bg-[#0B0B0B]">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-zinc-400 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div>
+          <div className="text-lg font-black tracking-[0.18em] text-white">ICEMAN</div>
+          <div className="mt-1">Premium gym apparel & performance nutrition</div>
+        </div>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.to + item.label}
-              to={item.to}
-              className={`text-sm font-medium transition ${location.pathname === item.to ? 'text-[#F6D77D]' : 'text-zinc-300 hover:text-white'}`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-5">
+          <Link to="/" className="hover:text-white">Home</Link>
+          <Link to="/auth" className="hover:text-white">Auth</Link>
+          <Link to="/pos" className="hover:text-white">POS</Link>
+        </div>
 
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setLang(lang === 'sw' ? 'en' : 'sw')}
-            className="rounded-full border border-[#D4AF37]/25 bg-[#111] px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#F6D77D]"
-          >
-            {lang === 'sw' ? 'EN' : 'SW'}
-          </button>
+        <div className="text-xs uppercase tracking-[0.2em] text-[#D4AF37]">
+          {lang === 'sw' ? 'Kiswahili' : 'English'}
         </div>
       </div>
-    </header>
+    </footer>
   );
 }

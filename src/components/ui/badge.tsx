@@ -1,12 +1,14 @@
 import * as React from 'react';
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type BadgeProps = React.HTMLAttributes<HTMLSpanElement>;
 
-export function Input({ className = '', ...props }: InputProps) {
+export function Badge({ className = '', children, ...props }: BadgeProps) {
   return (
-    <input
-      className={`w-full rounded-xl border border-[#D4AF37]/20 bg-[#101010] px-4 py-3 text-white placeholder:text-zinc-500 outline-none transition focus:border-[#D4AF37]/60 ${className}`}
+    <span
+      className={`inline-flex items-center rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-3 py-1 text-xs font-medium text-[#F6D77D] ${className}`}
       {...props}
-    />
+    >
+      {children}
+    </span>
   );
 }
